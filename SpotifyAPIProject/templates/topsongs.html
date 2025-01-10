@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Songs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Top Songs</h1>
+    <ul>
+        {% for song in songs %}
+            <li>
+                <h2>{{ song.name }}</h2>
+
+                <p>Artists: 
+                    {% for artist in song.artists %}
+                        {{ artist.name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <p>Album: {{ song.album.name }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.views.generic import ListView, RedirectView, TemplateView
 from dotenv import load_dotenv
 
-from .utils import get_access_token
+from .utils import get_access_token, get_top_items
 
 
 class HomeView(TemplateView):
@@ -20,7 +20,6 @@ class RequestUserAuth(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         uri = self.request.build_absolute_uri(reverse('api:toplists'))
-        print(uri)
         query_params = {
             'client_id': self.client_id,
             'response_type': 'code',
@@ -42,7 +41,23 @@ class MYSpotifyTopLists(TemplateView):
         error = self.request.GET.get('error', None)
         if error:
             context['error'] = error
-        else:
-            code = self.request.GET.get('code', None)
-            
+            return context
+        code = self.request.GET.get('code', None)
+        redirect_uri = self.request.build_absolute_uri(reverse('api:toplists'))
+        access_token = get_access_token(code, redirect_uri)
+        context['access_token'] = access_token
         return context
+    
+
+class TopSongs(TemplateView):
+    template_name = 'topsongs.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        access_token = self.request.GET.get('access_token')
+        songs = get_top_items('tracks', access_token)
+        context['songs'] = songs
+        return context
+
+class TopArtists(TemplateView):
+    pass

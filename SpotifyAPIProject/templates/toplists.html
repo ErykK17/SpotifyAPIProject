@@ -9,12 +9,12 @@
 <body>
     <h1>Top Lists</h1>
     <ul>
-        <li>{{auth_code}}</li>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
-        <li>Item 5</li>
+        <li>
+            <form action="{% url 'api:top-songs'%}" method="get">
+                <input type="hidden" name="access_token" value="{{ access_token }}">
+                <button type="submit">Top Artists</button>
+            </form>
+        </li>
     </ul>
 </body>
 </html>
