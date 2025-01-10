@@ -12,6 +12,9 @@
     </header>
     <main>
         <p>This is a basic welcome page for the Spotify API Project.</p>
+        <form action="{% url 'api:request-auth' %}" method="get">
+            <button type="submit">Send GET Request</button>
+        </form>
     </main>
     <footer>
         <p>&copy; 2023 My Spotify API Project</p>
