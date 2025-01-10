@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import MYSpotifyTopLists, HomeView, RequestUserAuth
+
+from .views import HomeView, MYSpotifyTopLists, RequestUserAuth
 
 app_name = 'api'
 
