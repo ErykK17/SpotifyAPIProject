@@ -12,6 +12,14 @@
         <li>
             <form action="{% url 'api:top-songs'%}" method="get">
                 <input type="hidden" name="access_token" value="{{ access_token }}">
+                <button type="submit">Top Songs</button>
+            </form>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <form action="{% url 'api:top-artists'%}" method="get">
+                <input type="hidden" name="access_token" value="{{ access_token }}">
                 <button type="submit">Top Artists</button>
             </form>
         </li>

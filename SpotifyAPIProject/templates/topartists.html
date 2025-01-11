@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Artists</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Top Artists</h1>
+    </header>
+    <main>
+        <ul>
+            {% for artist in artists %}
+                <li>
+                    <h2>{{ artist.name }}</h2>
+                    <p>Genres: 
+                        {% for genre in artist.genres %}
+                            {{ genre }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p>Followers: {{ artist.followers.total }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

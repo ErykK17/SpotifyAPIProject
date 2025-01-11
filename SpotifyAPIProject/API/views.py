@@ -35,7 +35,6 @@ class RequestUserAuth(RedirectView):
 
 class MYSpotifyTopLists(TemplateView):
     template_name = 'toplists.html'
- 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         error = self.request.GET.get('error', None)
@@ -55,9 +54,16 @@ class TopSongs(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         access_token = self.request.GET.get('access_token')
-        songs = get_top_items('tracks', access_token)
+        songs = get_top_items('tracks', access_token, time_range='short_term')
         context['songs'] = songs
         return context
 
 class TopArtists(TemplateView):
-    pass
+    template_name = 'topartists.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        access_token = self.request.GET.get('access_token')
+        artists = get_top_items('artists', access_token, time_range='short_term')
+        context['artists'] = artists
+        return context
