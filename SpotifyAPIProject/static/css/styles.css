@@ -1,0 +1,83 @@
+html {
+  height: 100%;
+  margin: 0;
+  overflow-y: hidden;
+}
+
+body {
+  font-family: "Alexandria", sans-serif;
+  font-size: 2vw;
+  color: white;
+  height: 100vh;
+  overflow-y: hidden;
+  background: #121212;
+  background: linear-gradient(360deg, #121212 80%, #111383 100%);
+  background-repeat: no-repeat;
+}
+body .logo1 {
+  color: #1CCC5B;
+}
+body .logo2 {
+  color: #F319CB;
+}
+
+.navbar {
+  size: 5vw;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-bottom: 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form button {
+  background-color: #F319CB;
+  height: 2.5rem;
+  width: 12rem;
+  border-radius: 28px;
+  border-width: 0;
+  font-family: "Alexandria", sans-serif;
+  font-size: 1vw;
+}
+
+form button:hover {
+  background-color: #b9129b;
+  cursor: pointer;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.cards .artists {
+  border-radius: 16px;
+  height: 600px;
+  width: 25vw;
+  min-height: 150px;
+  background: linear-gradient(180deg, rgba(220, 220, 220, 0.1) 0%, rgba(39, 39, 39, 0.1) 100%);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.cards .artists p {
+  color: #1CCC5B;
+}
+.cards .songs {
+  border-radius: 16px;
+  height: 600px;
+  width: 25vw;
+  min-height: 150px;
+  background: linear-gradient(180deg, rgba(220, 220, 220, 0.1) 0%, rgba(39, 39, 39, 0.1) 100%);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.cards .songs p {
+  color: #F319CB;
+}
+
+/*# sourceMappingURL=styles.css.map */

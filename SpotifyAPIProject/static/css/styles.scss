@@ -1,0 +1,97 @@
+$button-green: #1CCC5B;
+$button-pink: #F319CB;
+$button-pink-darker: #b9129b;
+$gradient-dark-blue: #111383;
+$gradient-black: #121212;
+$light-grey: rgb(220,220,220,0.1);
+$dark-grey: rgb(39,39,39,0.1);
+;
+
+
+html{
+    height: 100%;
+    margin: 0;
+    overflow-y: hidden;
+}
+body{
+    font-family: 'Alexandria', sans-serif;
+    font-size: 2vw;
+    color: white;  
+    height: 100vh;
+    overflow-y: hidden;
+    background: $gradient-black;
+    background: linear-gradient(360deg,$gradient-black 80%,$gradient-dark-blue 100%);
+    background-repeat: no-repeat;
+
+    .logo1{
+        color: $button-green;
+    }
+    .logo2{
+        color: $button-pink;
+    }
+}
+
+
+.navbar{
+    size: 5vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-bottom: 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form button{
+    background-color: $button-pink;
+    height: 2.5rem;
+    width: 12rem;
+    border-radius: 28px;
+    border-width: 0;
+    font-family: 'Alexandria', sans-serif;
+    font-size: 1vw;
+}
+
+form button:hover{
+    background-color: $button-pink-darker;
+    cursor: pointer;
+}
+
+.cards{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+
+    .artists{
+        border-radius: 16px;
+        height: 600px;
+        width: 25vw;
+        min-height: 150px;
+        background: linear-gradient(180deg, $light-grey 0%, $dark-grey 100%);
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        p{
+            color: $button-green;
+        }
+        
+    }
+    .songs{
+        border-radius: 16px;
+        height: 600px;
+        width: 25vw;
+        min-height: 150px;
+        background: linear-gradient(180deg, $light-grey 0%, $dark-grey 100%);
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        p{
+            color: $button-pink;
+        }
+    }
+}
+
