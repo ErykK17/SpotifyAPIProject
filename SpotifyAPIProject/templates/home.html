@@ -1,23 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Spotify API Project</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css '%}">
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Spotify API Project</h1>
-    </header>
     <main>
-        <p>This is a basic welcome page for the Spotify API Project.</p>
-        <form action="{% url 'api:request-auth' %}" method="get">
-            <button type="submit">Send GET Request</button>
-        </form>
+        <div class=navbar>        
+            <p>
+                <span class="logo1">Spotify</span>
+                <span class="logo2">Stats</span>
+            </p>
+            <div> 
+                <form action="{% url 'api:request-auth' %}" method="get">
+                    <button type="submit"><span>Login to Spotify</span></button>
+                </form>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="artists">
+                <p>Your Top Artists</p>
+                {% for artist in artists%}
+                    <li>
+                        <img src="{{ artist.images.0.url }}" alt="{{ artist.name }}">
+                        <p>{{ forloop.counter}}. {{artist.name}}</p>
+                    </li>
+                    {% endfor %}
+            </div>
+            <div class="songs">
+                <p>Your Top Songs</p>
+                {% for track in tracks %}
+                <li>
+                    <img src="{{track.album.images.0.url}}" alt="{{track.name}}">
+                    <p>{{ forloop.counter}}. {{track.name}}</p>
+                </li>
+                {% endfor %}
+            </div>
+        </div>
     </main>
-    <footer>
-        <p>2025 My Spotify API Project</p>
-    </footer>
 </body>
 </html>

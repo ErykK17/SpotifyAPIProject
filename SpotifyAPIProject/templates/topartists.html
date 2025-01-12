@@ -14,13 +14,14 @@
         <ul>
             {% for artist in artists %}
                 <li>
-                    <h2>{{ artist.name }}</h2>
+                    <h2>{{ forloop.counter }}.{{ artist.name }}</h2>
                     <p>Genres: 
                         {% for genre in artist.genres %}
                             {{ genre }}{% if not loop.last %}, {% endif %}
                         {% endfor %}
                     </p>
                     <p>Followers: {{ artist.followers.total }}</p>
+                    <p>Popularity: {{ artist.popularity }}</p> 
                 </li>
             {% endfor %}
         </ul>

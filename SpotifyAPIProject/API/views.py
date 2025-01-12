@@ -11,6 +11,22 @@ from .utils import get_access_token, get_top_items
 class HomeView(TemplateView):
     template_name = 'home.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        error = self.request.GET.get('error', None)
+        if error:
+            context['error'] = error
+            return context
+        code = self.request.GET.get('code', None)
+        if code:
+            redirect_uri = self.request.build_absolute_uri(reverse('api:home'))
+            access_token = get_access_token(code, redirect_uri)
+            context['access_token'] = access_token
+            tracks = get_top_items('tracks', access_token, time_range='short_term', limit=5)
+            artists = get_top_items('artists', access_token, time_range='short_term', limit=5)
+            context['tracks'] = tracks
+            context['artists'] = artists
+        return context
 
 class RequestUserAuth(RedirectView):
     spotify_url = 'https://accounts.spotify.com/authorize'
@@ -19,12 +35,11 @@ class RequestUserAuth(RedirectView):
     client_id = os.getenv('CLIENTID')
 
     def get_redirect_url(self, *args, **kwargs):
-        uri = self.request.build_absolute_uri(reverse('api:toplists'))
         query_params = {
             'client_id': self.client_id,
             'response_type': 'code',
             'scope': 'user-top-read',
-            'redirect_uri': self.request.build_absolute_uri(reverse('api:toplists')),
+            'redirect_uri': self.request.build_absolute_uri(reverse('api:home')),
         }
 
         query_string = '&'.join([f'{key}={value}' for key, value in query_params.items()])
@@ -32,21 +47,6 @@ class RequestUserAuth(RedirectView):
         return auth_url
     def get(self, request, *args, **kwargs):
         return redirect(self.get_redirect_url(*args, **kwargs))
-
-class MYSpotifyTopLists(TemplateView):
-    template_name = 'toplists.html'
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        error = self.request.GET.get('error', None)
-        if error:
-            context['error'] = error
-            return context
-        code = self.request.GET.get('code', None)
-        redirect_uri = self.request.build_absolute_uri(reverse('api:toplists'))
-        access_token = get_access_token(code, redirect_uri)
-        context['access_token'] = access_token
-        return context
-    
 
 class TopSongs(TemplateView):
     template_name = 'topsongs.html'
