@@ -71,13 +71,34 @@ form button:hover{
         min-height: 150px;
         background: linear-gradient(180deg, $light-grey 0%, $dark-grey 100%);
         display: flex;
-        justify-content: center;
-        align-content: center;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
 
         p{
             color: $button-green;
+            align-self: center;
         }
-        
+
+        li{
+            padding-left: 1vw;
+            padding-bottom: 1vw;
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            img{
+                width: 1.5em;
+                height: 1.5em;
+                border-radius: 50%;
+            }
+            p{
+                font-size: 1vw;
+                padding-left: 1.5em;
+            }
+        }
+
+
     }
     .songs{
         border-radius: 16px;
@@ -86,11 +107,31 @@ form button:hover{
         min-height: 150px;
         background: linear-gradient(180deg, $light-grey 0%, $dark-grey 100%);
         display: flex;
-        justify-content: center;
-        align-content: center;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
 
         p{
             color: $button-pink;
+            align-self: center;
+        }
+
+        li{
+            padding-left: 1vw;
+            padding-bottom: 1vw;
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            img{
+                width: 1.5em;
+                height: 1.5em;
+                border-radius: 50%;
+            }
+            p{
+                font-size: 1vw;
+                padding-left: 1.5em;
+            }
         }
     }
 }

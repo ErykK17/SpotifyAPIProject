@@ -60,11 +60,30 @@ form button:hover {
   min-height: 150px;
   background: linear-gradient(180deg, rgba(220, 220, 220, 0.1) 0%, rgba(39, 39, 39, 0.1) 100%);
   display: flex;
-  justify-content: center;
-  align-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 .cards .artists p {
   color: #1CCC5B;
+  align-self: center;
+}
+.cards .artists li {
+  padding-left: 1vw;
+  padding-bottom: 1vw;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cards .artists li img {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+}
+.cards .artists li p {
+  font-size: 1vw;
+  padding-left: 1.5em;
 }
 .cards .songs {
   border-radius: 16px;
@@ -73,11 +92,30 @@ form button:hover {
   min-height: 150px;
   background: linear-gradient(180deg, rgba(220, 220, 220, 0.1) 0%, rgba(39, 39, 39, 0.1) 100%);
   display: flex;
-  justify-content: center;
-  align-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 .cards .songs p {
   color: #F319CB;
+  align-self: center;
+}
+.cards .songs li {
+  padding-left: 1vw;
+  padding-bottom: 1vw;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cards .songs li img {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+}
+.cards .songs li p {
+  font-size: 1vw;
+  padding-left: 1.5em;
 }
 
 /*# sourceMappingURL=styles.css.map */
