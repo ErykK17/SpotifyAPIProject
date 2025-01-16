@@ -27,18 +27,26 @@
                 {% for artist in artists%}
                     <li>
                         <img src="{{ artist.images.0.url }}" alt="{{ artist.name }}">
-                        <p>{{ forloop.counter}}. {{artist.name}}</p>
+                        <p><a href="{{artist.external_urls.spotify}}">{{ forloop.counter}}. {{artist.name}}</a></p>
                     </li>
                     {% endfor %}
+                    <form action="{% url 'api:top-artists'%}" method="get">
+                        <input type="hidden" name="access_token" value="{{ access_token }}">
+                        <button type="submit">See More</button>
+                    </form>
             </div>
             <div class="songs">
                 <p>Your Top Songs</p>
                 {% for track in tracks %}
                 <li>
                     <img src="{{track.album.images.0.url}}" alt="{{track.name}}">
-                    <p>{{ forloop.counter}}. {{track.name}}</p>
+                    <p><a href="{{track.uri}}">{{ forloop.counter}}. {{track.name}}</a></p>
                 </li>
                 {% endfor %}
+                <form action="{% url 'api:top-artists'%}" method="get">
+                    <input type="hidden" name="access_token" value="{{ access_token }}">
+                    <button type="submit">See More</button>
+                </form>
             </div>
         </div>
     </main>

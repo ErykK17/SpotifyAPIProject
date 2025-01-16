@@ -52,5 +52,18 @@ def get_top_items(type, access_token, time_range='medium_term', limit=50, offset
     }
 
     list = get(full_url, headers=headers)
-    post_content = json.loads(list.content)
+    if list.status_code == 200:
+        post_content = json.loads(list.content)
+    else:
+        print(f"Error: {list.status_code}")
+    
+    try:
+        # Try to parse the JSON error message
+        error_data = list.json()
+        error_message = error_data.get('error', {}).get('message', 'No error message')
+        print(f"Error Message: {error_message}")
+    except ValueError:
+        # If the response is not JSON, print the raw response text
+        print("Could not parse error response. Raw response:")
+        print(list.text)
     return post_content['items']
