@@ -1,0 +1,16 @@
+.title {
+  text-align: center;
+  color: #F319CB;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background-color: #F319CB;
+}
+.cards .artists .head {
+  background-color: #F319CB;
+}
+.cards .artists .info {
+  padding-top: 30px;
+}
+
+/*# sourceMappingURL=toplist_pink.css.map */

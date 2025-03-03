@@ -1,0 +1,20 @@
+$button-pink: #F319CB;
+
+.title{
+    text-align: center;
+    color: $button-pink;
+}
+
+.cards{
+    &::-webkit-scrollbar-thumb{
+        background-color: $button-pink;
+    }
+    .artists{
+        .head{
+            background-color: $button-pink;
+        }
+        .info{
+            padding-top: 30px;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Alexandria", sans-serif;
+  font-size: 2vw;
+  color: white;
+  height: 100vh;
+  overflow-y: hidden;
+  background: #121212;
+  background: linear-gradient(360deg, #121212 66%, #111383 100%);
+  background-repeat: no-repeat;
+}
+body .logo1 {
+  color: #1CCC5B;
+}
+body .logo2 {
+  color: #F319CB;
+}
+
+.title {
+  text-align: center;
+  color: #1CCC5B;
+}
+
+.navbar {
+  size: 5vw;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-bottom: 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cards {
+  height: 70vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow-y: scroll;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.cards a {
+  color: inherit;
+  text-decoration: none;
+}
+.cards::-webkit-scrollbar {
+  width: 8px;
+}
+.cards::-webkit-scrollbar-track {
+  color: transparent;
+  border-radius: 5px;
+}
+.cards::-webkit-scrollbar-thumb {
+  background-color: #1CCC5B;
+  border-radius: 10px;
+}
+.cards .artists {
+  height: 10em;
+  width: 30vw;
+  background: #1C1C1C;
+  font-size: 1vw;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.cards .artists:hover {
+  background-color: #242424;
+}
+.cards .artists .head {
+  display: flex;
+  justify-content: flex-start;
+  background-color: #1CCC5B;
+}
+.cards .artists .head .number {
+  width: 10%;
+  padding-left: 0.5em;
+}
+.cards .artists .head .artist-name {
+  text-align: center;
+  width: 100%;
+}
+.cards .artists .info {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 10px;
+}
+.cards .artists .info .artist-image {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+.cards .artists .info .artist-image img {
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=toplist.css.map */

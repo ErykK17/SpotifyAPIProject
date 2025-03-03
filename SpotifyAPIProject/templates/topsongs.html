@@ -1,26 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top Songs</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{% static 'css/toplist.css '%}">
+    <link rel="stylesheet" href="{% static 'css/toplist_pink.css '%}">
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Top Songs</h1>
-    <ul>
-        {% for song in songs %}
-            <li>
-                <h2>{{ forloop.counter }}. {{ song.name }}</h2>
-
-                <p>Artists: 
-                    {% for artist in song.artists %}
-                        {{ artist.name }}{% if not loop.last %}, {% endif %}
-                    {% endfor %}
-                </p>
-                <p>Album: {{ song.album.name }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+    <main>
+        <div class="navbar">
+            <p>
+                <span class="logo1">Spotify</span>
+                <span class="logo2">Stats</span>
+            </p>
+        </div>
+        <span class="title"><p>Your top songs past 6 months</p></span>
+        <div class="cards">
+            {% for song in songs %}
+            <a href="{{song.uri}}">
+                <div class="artists">
+                    <div class="head">
+                        <div class="number">{{ forloop.counter }}</div>
+                        <div class="artist-name">{{ song.name }}</div>
+                    </div>
+                    <div class="info">
+                        <span class=artist-image><img src="{{ song.album.images.0.url }}" alt="{{ song.name }}"></span>
+                        <div class="data">
+                            <p>Artists: 
+                                {% for artist in song.artists %}
+                                    {{ artist.name }}{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            <p>Album: {{ song.album.name }}</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </main>
 </body>
+</html>
+
 </html>

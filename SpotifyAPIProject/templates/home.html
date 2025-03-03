@@ -43,7 +43,7 @@
                     <p><a href="{{track.uri}}">{{ forloop.counter}}. {{track.name}}</a></p>
                 </li>
                 {% endfor %}
-                <form action="{% url 'api:top-artists'%}" method="get">
+                <form action="{% url 'api:top-songs'%}" method="get">
                     <input type="hidden" name="access_token" value="{{ access_token }}">
                     <button type="submit">See More</button>
                 </form>

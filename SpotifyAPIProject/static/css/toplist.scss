@@ -1,0 +1,124 @@
+$button-green: #1CCC5B;
+$button-pink: #F319CB;
+$button-pink-darker: #b9129b;
+$gradient-dark-blue: #111383;
+$gradient-black: #121212;
+$light-grey: rgb(220,220,220,0.05);
+$dark-grey: rgb(39,39,39,0.05);
+$transparent-black: rgb(18,18,18,0.05);
+
+html{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    font-family: 'Alexandria', sans-serif;
+    font-size: 2vw;
+    color: white;  
+    height: 100vh;
+    overflow-y: hidden;
+    background: $gradient-black;
+    background: linear-gradient(360deg,$gradient-black 66%,$gradient-dark-blue 100%);
+    background-repeat: no-repeat;
+    
+    .logo1{
+        color: $button-green;
+    }
+    .logo2{
+        color: $button-pink;
+    }
+}
+
+.title{
+    text-align: center;
+    color: $button-green;
+}
+
+.navbar{
+    size: 5vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-bottom: 1vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cards{
+    height: 70vh; 
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow-y: scroll;
+    margin-left: 1em;
+    margin-right: 1em;
+
+    a{
+        color: inherit;
+        text-decoration: none;
+    }
+
+    &::-webkit-scrollbar{
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track{
+        color: transparent;
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: $button-green;
+        border-radius: 10px;
+    }
+
+    .artists{
+        height: 10em;
+        width: 30vw;
+        background: #1C1C1C;
+        font-size: 1vw;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        &:hover{
+            background-color: #242424;
+        }
+        .head{
+            display: flex;
+            justify-content: flex-start;
+            background-color: $button-green;
+            .number{
+                width: 10%;
+                padding-left: 0.5em;
+            }
+            .artist-name{
+                text-align: center;
+                width: 100%;
+            }
+        }
+        .info{
+            display: flex;
+            justify-content: flex-start;
+            padding-top: 10px;
+            .artist-image{
+                width: 40%;
+                height: 100%;
+                display: flex;
+                padding: 0;
+                justify-content: center;
+                align-items: center;
+                    img{
+                        width: 6em;
+                        height: 6em;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+            }
+        }
+    }
+}

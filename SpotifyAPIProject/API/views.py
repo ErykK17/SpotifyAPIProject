@@ -22,8 +22,8 @@ class HomeView(TemplateView):
             redirect_uri = self.request.build_absolute_uri(reverse('api:home'))
             access_token = get_access_token(code, redirect_uri)
             context['access_token'] = access_token
-            tracks = get_top_items('tracks', access_token, time_range='short_term', limit=5)
-            artists = get_top_items('artists', access_token, time_range='short_term', limit=5)
+            tracks = get_top_items('tracks', access_token, time_range='medium_term', limit=5)
+            artists = get_top_items('artists', access_token, time_range='medium_term', limit=5)
             context['tracks'] = tracks
             context['artists'] = artists
         return context
@@ -54,7 +54,7 @@ class TopSongs(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         access_token = self.request.GET.get('access_token')
-        songs = get_top_items('tracks', access_token, time_range='short_term')
+        songs = get_top_items('tracks', access_token, time_range='medium_term')
         context['songs'] = songs
         return context
 
@@ -64,6 +64,6 @@ class TopArtists(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         access_token = self.request.GET.get('access_token')
-        artists = get_top_items('artists', access_token, time_range='short_term')
+        artists = get_top_items('artists', access_token, time_range='medium_term')
         context['artists'] = artists
         return context
