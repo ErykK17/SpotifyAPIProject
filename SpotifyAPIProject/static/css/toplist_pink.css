@@ -1,13 +1,14 @@
 .title {
   text-align: center;
-  color: #F319CB;
+  color: #AF2BBF;
 }
 
 .cards::-webkit-scrollbar-thumb {
-  background-color: #F319CB;
+  background-color: #AF2BBF;
 }
 .cards .artists .head {
-  background-color: #F319CB;
+  background-color: #AF2BBF;
+  color: white;
 }
 .cards .artists .info {
   padding-top: 30px;

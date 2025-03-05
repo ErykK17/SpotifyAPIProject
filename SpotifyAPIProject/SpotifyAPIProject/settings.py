@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=k4$69ak8c5a((rp2_0@#31t8r+d*dnlz=k6*)j1j(6$=)af)s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['immortal-strong-mackerel.ngrok-free.app','127.0.0.1']
+ALLOWED_HOSTS = ['leading-macaque-notable.ngrok-free.app','127.0.0.1']
 
 
 
